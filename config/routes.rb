@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+
   root to: 'home#show'
 
   get "/auth/auth0/callback" => "auth0#callback"
