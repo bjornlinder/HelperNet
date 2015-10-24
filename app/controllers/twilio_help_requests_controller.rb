@@ -1,6 +1,9 @@
 class TwilioHelpRequestsController < ApplicationController
 
   def create
+    puts 'PARAMS:'
+    puts params
+
     load_or_create_user
     @content = params[:Body].split(%r{;\/})
 
@@ -15,7 +18,7 @@ class TwilioHelpRequestsController < ApplicationController
     from = params.require(:From).sub('+1', '')
     load_name
 
-    @user = User.find_or_create_by(phone: from, full_name: load_name)
+    @user = User.find_or_create_by(phone: from, full_name: load_name, user_type: 'client')
   end
 
   def load_name
