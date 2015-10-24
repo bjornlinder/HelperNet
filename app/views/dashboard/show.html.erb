@@ -7,6 +7,9 @@ Dashboard here!
       <li><%= help_request.description      %></li>
       <li><%= help_request.status           %></li>
       <li><%= help_request.user.full_name %></li>
+      <%= link_to 'Accept Task', help_request_path(help_request), method: :put %>
+
+      <!-- <%= link_to image_tag('/images/imgname.png'), 'tasks/accept', method: :put %> -->
     </div>
   <% end %>
 </div>
