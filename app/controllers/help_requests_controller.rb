@@ -1,0 +1,2 @@
+class HelpRequestsController < ApplicationController
+end
