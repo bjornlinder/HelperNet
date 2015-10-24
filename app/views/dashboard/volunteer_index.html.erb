@@ -1,19 +1,20 @@
-Dashboard here!
-
 <div class='help-requests'>
   <% @help_requests.each do |help_request| %>
-    <%== "<div class='help-request status-#{help_request.status}'>" %>
-      <div class='title-section'>
-        <div class='task name'><%= help_request.name %></div>
+    <%== "<div class='help-request left status-#{help_request.status}'>" %>
+      <div class='task-section title-section left'>
+        <div class='left title'><%= help_request.name %></div>
         <% if help_request.user %>
-          <div class='task name'><%= help_request.user.full_name %></div>
+          <div class='left user-name'> - <%= help_request.user.full_name %></div>
         <% end %>
-        <div class='datetime'><%= help_request.created_at.strftime("%I:%M%p %A, %B %d") %></div>
+        <div class='datetime'><%= help_request.created_at.strftime("%I:%M %p %A, %B %d") %></div>
       </div>
-      <p><%= help_request.description %></p>
+      <div class='task-section left'>
+        <p><%= help_request.description %></p>
 
-      <%= link_to 'Accept Task', help_request_path(help_request), method: :put %>
-
+        <% if help_request.status == 'new' %>
+          <%= link_to image_tag('/images/acceptusertask_btn.png'), help_request_path(help_request), method: :put %>
+        <% end %>
+      </div>
       <!-- <%= link_to image_tag('/images/imgname.png'), 'tasks/accept', method: :put %> -->
     </div>
   <% end %>
