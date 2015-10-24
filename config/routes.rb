@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  root to: 'homes#show'
+  root to: 'home#show'
 
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
+
+  get 'dashboard' => 'dashboard#show'
+  get 'account' => 'dashboard#account'
+
+  resources :help_requests
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
