@@ -2,9 +2,6 @@ class TwilioHelpRequestsController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def create
-    puts 'PARAMS:'
-    puts params
-
     @content = params[:Body].split(%r{[;\/]})
     load_or_create_user
 

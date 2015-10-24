@@ -11,6 +11,13 @@ class HelpRequestsController < ApplicationController
     # end
   end
 
+  def update
+    @request = HelpRequest.find_by(params[:id])
+    @requester = User.find_by(@request.user_id)
+
+    @request.update(assigned_id: current_user.id, status: 'accepted')
+  end
+
   def help_request_params
     params.require(:help_request).permit(:name,:description)
   end
