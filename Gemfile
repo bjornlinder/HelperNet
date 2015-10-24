@@ -14,6 +14,7 @@ gem 'simple_form'
 
 gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'pry-rails'
