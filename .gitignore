@@ -11,3 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+#Ignore vendor and idea
+/vendor
+/.idea
