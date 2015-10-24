@@ -3,6 +3,24 @@
 <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+<script src="https://cdn.auth0.com/js/lock-7.9.min.js"></script>
+<script type="text/javascript">
+
+  var lock = new Auth0Lock('MqYoqb2M9nLWAkupdwAtxAx3vuiXfjcP', 'helpernet.auth0.com');
+
+
+  function signin() {
+    lock.show({
+      callbackURL: 'http://127.0.0.1/auth/auth0/callback'
+      , responseType: 'code'
+      , authParams: {
+        scope: 'openid profile'
+      }
+    });
+  }
+</script>
+
+
 
 <body id="page-top" class="index">
 
@@ -33,10 +51,10 @@
           <a class="page-scroll" href="#about">How It Works</a>
         </li>
         <li>
-          <a class="page-scroll" href="#signup">Sign Up</a>
+          <a class="page-scroll" onclick="window.signin();" >Sign Up</a>
         </li>
         <li>
-          <a class="page-scroll" href="#login">Log In</a>
+          <a class="page-scroll" onclick="window.signin();">Log In</a>
         </li>
       </ul>
     </div>
@@ -53,8 +71,9 @@
         <%= image_tag "helpnetlogo.png" %>
       </div>
       <div class="intro-heading">Connecting goodwill</div>
-      <%= link_to "I Want Help", users_path, class: 'page-scroll btn btn-xl' %>
-    <%= link_to "I Can Help", users_path, class: 'page-scroll btn btn-xl' %>
+      <button class = "page-scroll btn btn-xl" onclick="window.signin();">I Want Help</button>
+      <button class = "page-scroll btn btn-xl" onclick="window.signin();">I Can Help</button>
+
   </div>
     </div>
 </header>
