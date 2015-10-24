@@ -10,12 +10,13 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'simple_form'
 
 gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'pry-rails'
 end
 
 group :development do

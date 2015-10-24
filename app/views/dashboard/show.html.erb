@@ -1,0 +1,20 @@
+Dashboard here!
+
+<div class='help-requests'>
+  <% @help_requests.each do |help_request| %>
+    <div class='help-request'>
+      <li><%= help_request.name             %></li>
+      <li><%= help_request.description      %></li>
+      <li><%= help_request.status           %></li>
+      <li><%= help_request.user.full_name %></li>
+    </div>
+  <% end %>
+</div>
+
+<h3>Create New</h3>
+
+<%= simple_form_for(@help_request) do |f| %>
+  <%= f.input :name, label: "Request Summary" %>
+  <%= f.input :description, label: "Description" %>
+  <%= f.button :submit, 'Create!' %>
+<% end %>

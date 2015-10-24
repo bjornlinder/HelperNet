@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class HomeController < ApplicationController
   def show
     render partial: 'shared/users'
   end
