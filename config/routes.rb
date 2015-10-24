@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
 
-  get 'dashboard' => 'dashboard#show'
+  # get 'dashboard' => 'dashboard#show'
+  get 'dashboard' => 'dashboard#index'
+  get 'user-dashboard' => 'dashboard#volunteer_index'
   get 'account' => 'dashboard#account'
 
   resources :help_requests
