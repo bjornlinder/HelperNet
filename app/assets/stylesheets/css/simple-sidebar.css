@@ -151,7 +151,7 @@
 	padding-top: 100px;
 	padding bottom: 150px;
   
-	background-image: url(../../Top-bg.png);
+	background-image: url( "/assets/Top-bg.png" );
 	background-repeat:repeat-y;
 	;
 }
