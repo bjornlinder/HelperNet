@@ -1,4 +1,6 @@
 class HelpRequestsController < ApplicationController
+  # before_action :authenticate
+
   def create
     help_request = HelpRequest.new(help_request_params, status: 'new')
 
@@ -12,13 +14,26 @@ class HelpRequestsController < ApplicationController
   end
 
   def update
-    @request = HelpRequest.find_by(params[:id])
-    @requester = User.find_by(@request.user_id)
+    @request = HelpRequest.find(params[:id])
+    @requester = User.find(@request.user_id)
 
     @request.update(assigned_id: current_user.id, status: 'accepted')
+    notify_task_assigned(@requester)
+
+    redirect_to :back
   end
 
+  private
+
   def help_request_params
-    params.require(:help_request).permit(:name,:description)
+    params.require(:help_request).permit(:name, :description)
+  end
+
+  def current_user
+    User.first
+  end
+
+  def notify_task_assigned(requester)
+
   end
 end

@@ -14,7 +14,10 @@ gem 'simple_form'
 
 gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
+
 gem 'twilio-ruby'
+
+gem 'font-awesome-sass', '~> 4.4.0'
 
 group :development, :test do
   gem 'pry-rails'
