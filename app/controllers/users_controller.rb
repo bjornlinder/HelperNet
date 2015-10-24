@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find_by(phone: params[:user][:phone]) ||
+            User.find_by(email: params[:user][:email])
+
     @user.update!(user_params)
+
+    redirect_to :back
   end
 
   private
