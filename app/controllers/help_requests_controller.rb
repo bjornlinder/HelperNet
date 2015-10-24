@@ -18,7 +18,7 @@ class HelpRequestsController < ApplicationController
     @requester = User.find(@request.user_id)
 
     @request.update(assigned_id: current_user.id, status: 'accepted')
-    notify_task_assigned(@requester)
+    notify_task_assigned(@requester, current_user)
 
     redirect_to :back
   end
@@ -37,11 +37,11 @@ class HelpRequestsController < ApplicationController
     $twilio_client.account.messages.create(
       from: '+14704357638',
       to: requester.phone,
-      body: message
+      body: message(user)
     )
   end
 
-  def message
+  def message(user)
     "#{user.full_name} has accepted your task."
   end
 end
