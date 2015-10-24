@@ -33,7 +33,15 @@ class HelpRequestsController < ApplicationController
     User.first
   end
 
-  def notify_task_assigned(requester)
+  def notify_task_assigned(requester, user)
+    $twilio_client.account.messages.create(
+      from: '+14704357638',
+      to: requester.phone,
+      body: message
+    )
+  end
 
+  def message
+    "#{user.full_name} has accepted your task."
   end
 end
