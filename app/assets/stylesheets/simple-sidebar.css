@@ -110,6 +110,7 @@
 
     #sidebar-wrapper {
         width: 250px;
+      background-color: #fff;
     }
 
     #wrapper.toggled #sidebar-wrapper {
