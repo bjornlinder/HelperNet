@@ -1,11 +1,12 @@
-class TwilioHelpRequestsController < ApplicationController
+class TwilioHelpRequestsController < ActionController::Base
+  protect_from_forgery with: :null_session
 
   def create
     puts 'PARAMS:'
     puts params
 
+    @content = params[:Body].split(%r{[;\/]})
     load_or_create_user
-    @content = params[:Body].split(%r{;\/})
 
     create_help_request
 
@@ -16,27 +17,27 @@ class TwilioHelpRequestsController < ApplicationController
 
   def load_or_create_user
     from = params.require(:From).sub('+1', '')
-    load_name
+    name = load_name
 
-    @user = User.find_or_create_by(phone: from, full_name: load_name, user_type: 'client')
+    @user = User.find_or_create_by(phone: from, full_name: name, user_type: 'client')
   end
 
   def load_name
-    if content.length == 3
+    if @content.length == 3
       @format_is_correct = true
-      content[0]
+      @content[0]
     end
   end
 
   def create_help_request
     if @format_is_correct
-      title = content[1]
-      description = content[2]
+      title = @content[1]
+      description = @content[2]
     else
-      description = content[0]
+      description = @content[0]
     end
 
-    HelpRequest.create!(user: @user, title: title, description: description)
+    HelpRequest.create!(user: @user, name: title, description: description, status: 'new')
   end
 
 end
