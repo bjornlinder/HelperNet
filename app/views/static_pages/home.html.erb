@@ -1,0 +1,244 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<script src="https://cdn.auth0.com/js/lock-7.9.min.js"></script>
+<script type="text/javascript">
+
+  var lock = new Auth0Lock('MqYoqb2M9nLWAkupdwAtxAx3vuiXfjcP', 'helpernet.auth0.com');
+
+
+  function signin() {
+    lock.show({
+      callbackURL: 'http://127.0.0.1/auth/auth0/callback'
+      , responseType: 'code'
+      , authParams: {
+        scope: 'openid profile'
+      }
+    });
+  }
+</script>
+
+
+
+<body id="page-top" class="index">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#page-top">
+      <%= image_tag "helpnetlogo.png", class: 'navbar-brand page-scroll' %>
+        </a>
+    </div>
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#about">How It Works</a>
+        </li>
+        <li>
+          <a class="page-scroll" onclick="window.signin();" >Sign Up</a>
+        </li>
+        <li>
+          <a class="page-scroll" onclick="window.signin();">Log In</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">
+        <%= image_tag "helpnetlogo.png" %>
+      </div>
+      <div class="intro-heading">Connecting goodwill</div>
+      <button class = "page-scroll btn btn-xl" onclick="window.signin();">I Want Help</button>
+      <button class = "page-scroll btn btn-xl" onclick="window.signin();">I Can Help</button>
+
+  </div>
+    </div>
+</header>
+
+
+
+<!-- About Section -->
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">How It Works</h2>
+        <h3 class="section-subheading text-muted">A real-time platform to match organizations with volunteers</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="timeline">
+          <li class="timeline-inverted">
+                      <div class="timeline-image">
+                        <%= image_tag("1-icon.png", class: "img-circle img-responsive") %>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Part 1</h4>
+                <h4 class="subheading">Organization On Board</h4>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">Organizations that need helpers will sign up for an account
+
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <%= image_tag("2-icon.png", class: "img-circle img-responsive") %>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Part 2</h4>
+                <h4 class="subheading">"I Need Help!"</h4>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">Organizations add help requests and specify the task location, preferred volunteer skillsets, and number of helpers/hours needed</div>
+            </div>
+          </li>
+
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <%= image_tag("3-icon.png", class: "img-circle img-responsive") %>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Part 3</h4>
+                <h4 class="subheading">"I Wanna Help!"</h4>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">People in the community sign up & view help requests based on filters such as geography, skillsets, and commitment level</div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <%= image_tag("4-icon.png", class: "img-circle img-responsive") %>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Part 4</h4>
+                <h4 class="subheading">A Match is Made</h4>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">Organizations are notified and are able to coordinate with volunteers (using Twilio's API)</div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <h4>Be Part
+                <br>Of Our
+                <br>Network!</h4>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Contact Us</h2>
+        <h3 class="section-subheading text-muted">Have questions? Have concerns? Contact us!</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <form name="sentMessage" id="contactForm" novalidate>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12 text-center">
+              <div id="success"></div>
+              <button type="submit" class="btn btn-xl">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="copyright">Copyright &copy; HelperNet 2015</span>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline social-buttons">
+          <li><a href="#"><%=          icon('twitter')%>
+
+
+          </a>
+          </li>
+          <li>
+            <a href="#"><%=          icon('facebook') %>
+
+          </a>
+          </li>
+          <li><a href="#"><%=          icon('linkedin') %>
+          </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline quicklinks">
+          <li><a href="#">Privacy Policy</a>
+          </li>
+          <li><a href="#">Terms of Use</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+

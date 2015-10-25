@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  root to: 'home#show'
+  # root to: 'home#show'
+
+  root to: 'static_pages#home'
 
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
 
   get 'dashboard' => 'dashboard#show'
   get 'account' => 'dashboard#account'
+  get 'user-dashboard' => 'dashboard#volunteer_index'
 
   resources :help_requests
   resources :users
