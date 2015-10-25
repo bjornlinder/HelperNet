@@ -12,7 +12,7 @@
         <p><%= help_request.description %></p>
 
         <% if help_request.status == 'new' %>
-          <%= link_to image_tag('/images/acceptusertask_btn.png'), help_request_path(help_request), method: :put %>
+          <%= link_to image_tag('acceptusertask_btn.png'), help_request_path(help_request), method: :put %>
         <% end %>
       </div>
       <!-- <%= link_to image_tag('/images/imgname.png'), 'tasks/accept', method: :put %> -->
