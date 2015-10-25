@@ -1,17 +1,10 @@
-class DashboardController < ApplicationController
+class AdminDashboardController < ApplicationController
   # include Authenticable
 
   before_action :authenticate
-  layout 'dashboard', only: 'index'
-  layout 'volunteer', only: 'volunteer_index'
+  layout 'admin'
 
-  def show
-    @help_requests = HelpRequest.all
-    @my_help_requests = @current_user.help_requests
-    @help_request = HelpRequest.new()
-  end
-
-  def volunteer_index
+  def tasks
     @help_requests = HelpRequest.all
     @my_help_requests = @current_user.help_requests
     @help_request = HelpRequest.new()

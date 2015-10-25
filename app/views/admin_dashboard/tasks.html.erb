@@ -1,5 +1,3 @@
-Dashboard here!
-
 <div class='help-requests'>
   <% @help_requests.each do |help_request| %>
     <div class='help-request'>
@@ -13,8 +11,8 @@ Dashboard here!
 
 <h3>Create New</h3>
 
-<%= simple_form_for(@help_request) do |f| %>
-  <%= f.input :name, label: "Request Summary" %>
-  <%= f.input :description, label: "Description" %>
-  <%= f.button :submit, 'Create!' %>
+<%= form_for(@help_request) do |f| %>
+  <%= f.text_field :name, label: "Request Summary" %>
+  <%= f.text_field :description, label: "Description" %>
+  <%= f.submit %>
 <% end %>

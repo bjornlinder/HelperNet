@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
 
-  get 'dashboard' => 'dashboard#index'
-  get 'account' => 'dashboard#account'
-  get 'user-dashboard' => 'dashboard#volunteer_index'
+  get 'tasks' => 'admin_dashboard#tasks'
+  get 'dashboard' => 'admin_dashboard#index'
+  get 'account' => 'admin_dashboard#account'
+
+  get 'user-dashboard' => 'volunteer_dashboard#index'
 
   resources :help_requests
   resources :users
