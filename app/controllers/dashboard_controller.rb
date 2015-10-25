@@ -9,6 +9,12 @@ class DashboardController < ApplicationController
     @help_request = HelpRequest.new()
   end
 
+  def volunteer_index
+    @help_requests = HelpRequest.all
+    @my_help_requests = @current_user.help_requests
+    @help_request = HelpRequest.new()
+  end
+
   def account
     @help_requests = @current_user.help_requests
 
