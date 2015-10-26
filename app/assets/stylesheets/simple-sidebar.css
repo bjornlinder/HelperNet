@@ -149,7 +149,7 @@
 	padding-top: 100px;
 	padding-bottom: 10px;
 
-	background-image: url("/assets/Top-bg.png" );
+	background-image: url('/images/Top-bg.png');
 	background-repeat: no-repeat;
 }
 .height {
