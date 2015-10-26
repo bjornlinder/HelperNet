@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'account' => 'admin_dashboard#account'
 
   get 'helper-dashboard' => 'helper_dashboard#index'
+  get 'contact' => 'contact#new'
 
   resources :help_requests
   resources :users

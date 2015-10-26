@@ -4,7 +4,6 @@ class Auth0Controller < ApplicationController
     # and the IdP
     session[:userinfo] = request.env['omniauth.auth']
     # Redirect to the URL you want after successfull auth
-    binding.pry
 
     redirect_to '/dashboard'
   end
