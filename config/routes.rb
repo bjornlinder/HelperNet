@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'admin_dashboard#index'
   get 'account' => 'admin_dashboard#account'
 
-  get 'user-dashboard' => 'volunteer_dashboard#index'
+  get 'helper-dashboard' => 'helper_dashboard#index'
 
   resources :help_requests
   resources :users

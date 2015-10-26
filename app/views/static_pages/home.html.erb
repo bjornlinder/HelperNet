@@ -5,22 +5,18 @@
 
 <script src="https://cdn.auth0.com/js/lock-7.9.min.js"></script>
 <script type="text/javascript">
+  var lock = new Auth0Lock('<%= ENV["AUTH0_CLIENT_ID"] %>', '<%= ENV["AUTH0_DOMAIN"] %>');
+  function signin(button) {
 
-  var lock = new Auth0Lock('MqYoqb2M9nLWAkupdwAtxAx3vuiXfjcP', 'helpernet.auth0.com');
-
-
-  function signin() {
     lock.show({
-      callbackURL: 'http://127.0.0.1/auth/auth0/callback'
+      callbackURL: ('<%= "#{request.env['REQUEST_URI']}auth/auth0/callback&click=" %>' + click + '&')
       , responseType: 'code'
       , authParams: {
         scope: 'openid profile'
-      }
+      },
     });
   }
 </script>
-
-
 
 <body id="page-top" class="index">
 
@@ -67,13 +63,14 @@
 <header>
   <div class="container">
     <div class="intro-text">
-      <div class="intro-lead-in">
-        <%= image_tag "helpnetlogo.png" %>
-      </div>
+      <%= link_to root_path do %>
+        <div class="intro-lead-in">
+          <%= image_tag "helpnetlogo.png" %>
+        </div>
+      <% end %>
       <div class="intro-heading">Connecting goodwill</div>
-      <button class = "page-scroll btn btn-xl" onclick="window.signin();">I Want Help</button>
-      <button class = "page-scroll btn btn-xl" onclick="window.signin();">I Can Help</button>
-
+      <button class = "page-scroll btn btn-xl" onclick="window.location.href='/helper-dashboard'">I Want Help</button>
+      <button class = "page-scroll btn btn-xl" onclick="window.location.href='/helper-dashboard'">I Can Help</button>
   </div>
     </div>
 </header>

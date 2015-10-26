@@ -1,8 +1,8 @@
-class VolunteerDashboardController < ApplicationController
+class HelperDashboardController < ApplicationController
   # include Authenticable
 
   before_action :authenticate
-  layout 'volunteer', only: 'index'
+  layout 'helper', only: 'index'
 
   def index
     @help_requests = HelpRequest.all

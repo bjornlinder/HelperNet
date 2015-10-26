@@ -4,8 +4,6 @@ ruby '2.2.2'
 gem 'rails', '4.2.4'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
-gem 'rails_12factor'
-gem 'puma'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
@@ -17,6 +15,7 @@ gem 'twilio-ruby'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -24,3 +23,6 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'unicorn'
+end

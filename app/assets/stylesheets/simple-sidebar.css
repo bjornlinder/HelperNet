@@ -147,10 +147,10 @@
 }
 .custombg {
 	padding-top: 100px;
-	padding-bottom: 150px;
+	padding-bottom: 10px;
 
 	background-image: url("/assets/Top-bg.png" );
-	background-repeat: repeat-y;
+	background-repeat: no-repeat;
 }
 .height {
 	min-height:300px;
