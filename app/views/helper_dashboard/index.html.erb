@@ -15,14 +15,22 @@
         <% end %>
         <div class='datetime'><%= help_request.created_at.strftime("%I:%M %p %A, %B %d") %></div>
       </div>
+
       <div class='task-section left'>
         <p><%= help_request.description %></p>
+      </div>
 
+      <div class='task-section left'>
         <% if help_request.status == 'new' %>
-          <%= link_to image_tag('Acceptusertask_btn.png'), help_request_path(help_request), method: :put %>
+          <%= form_tag help_request_path(help_request), class: 'help-request-form', method: :put %>
+          <div class='form-input'>
+            <textarea name="message" placeholder="I'll be right there!" rows='2'></textarea><br>
+            <label 'message'>Message (optional)</label>
+          </div>
+            <%= image_submit_tag('Acceptusertask_btn.png', class: 'right') %>
+          </form>
         <% end %>
       </div>
-      <!-- <%= link_to image_tag('/images/imgname.png'), 'tasks/accept', method: :put %> -->
     </div>
   <% end %>
 </div>

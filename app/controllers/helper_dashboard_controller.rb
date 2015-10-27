@@ -2,18 +2,12 @@ class HelperDashboardController < ApplicationController
   # include Authenticable
 
   before_action :authenticate
-  layout 'helper', only: 'index'
+  layout 'helper'
 
   def index
-    @help_requests = HelpRequest.all
-    @my_help_requests = @current_user.help_requests
-    @help_request = HelpRequest.new()
-  end
-
-  def account
-    @help_requests = @current_user.help_requests
-
-    @user = User.first
+    @help_requests = HelpRequest.order(status: :desc).limit(10)
+    # @my_help_requests = @current_user.help_requests
+    # @help_request = HelpRequest.new()
   end
 
   private
